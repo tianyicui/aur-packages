@@ -1,0 +1,20 @@
+# Contributor: pumbur <free@pumbur.net>
+
+pkgname='rubinius'
+pkgver=1.0.1
+pkgrel=1
+pkgdesc="Rubinius, the Ruby VM"
+arch=('i686' 'x86_64')
+license=('BSD')
+url="http://rubini.us/"
+source=(http://asset.rubini.us/rubinius-1.0.1-20100603.tar.gz)
+md5sums=(eb185703c7ae0c0210e8dcb7f783ee8e)
+depends=(llvm openssl readline zlib)
+
+
+makedepends=(ruby1.8 ruby1.8-rake bison rubygems1.8)
+build(){
+  cd $srcdir/rubinius-$pkgver
+  ruby-1.8 ./configure --prefix=/usr/lib --bindir=/usr/bin --mandir=/usr/share/man --includedir=/usr/include/rubinius
+  FAKEROOT="$pkgdir/" /opt/ruby1.8/lib/ruby/gems/1.8/bin/rake install
+}
