@@ -11,10 +11,10 @@ url="http://rubini.us/"
 source=(http://asset.rubini.us/rubinius-1.1.0-20100923.tar.gz)
 md5sums=(e2ae16238b201de09975abe19da09ea9)
 depends=(openssl readline zlib)
-makedepends=(ruby1.8 ruby1.8-rake bison rubygems1.8)
+makedepends=(ruby bison)
 
 build(){
   cd $srcdir/rubinius-$pkgver
-  ruby-1.8 ./configure --skip-system --prefix=/usr --mandir=/usr/share/man --includedir=/usr/include/rubinius
-  FAKEROOT="$pkgdir/" /opt/ruby1.8/lib/ruby/gems/1.8/bin/rake install
+  ./configure --skip-system --skip-prebuilt --prefix=/usr --mandir=/usr/share/man --includedir=/usr/include/rubinius
+  FAKEROOT="$pkgdir/" rake install
 }
