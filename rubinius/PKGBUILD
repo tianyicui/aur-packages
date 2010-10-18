@@ -15,6 +15,7 @@ makedepends=(ruby bison)
 
 build(){
   cd $srcdir/rubinius-$pkgver
-  ./configure --skip-system --skip-prebuilt --prefix=/usr --mandir=/usr/share/man --includedir=/usr/include/rubinius
+  sed -i 's|-Werror||' rakelib/vm.rake
+  ./configure --skip-system --prefix=/usr --mandir=/usr/share/man --includedir=/usr/include/rubinius
   FAKEROOT="$pkgdir/" rake install
 }
