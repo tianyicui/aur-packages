@@ -1,5 +1,5 @@
+# Maintainer: Tianyi Cui <tianyicui@gmail.com>
 # Contributor: pumbur <free@pumbur.net>
-# Contributor: tianyicui <tianyicui@gmail.com>
 
 pkgname='rubinius'
 pkgver=1.1.0
@@ -10,12 +10,12 @@ license=('BSD')
 url="http://rubini.us/"
 source=(http://asset.rubini.us/rubinius-1.1.0-20100923.tar.gz)
 md5sums=(e2ae16238b201de09975abe19da09ea9)
-depends=(openssl readline zlib)
-makedepends=(ruby bison)
+depends=(openssl readline)
+makedepends=(ruby bison zlib)
 
 build(){
   cd $srcdir/rubinius-$pkgver
   sed -i 's|-Werror||' rakelib/vm.rake
-  ./configure --skip-system --prefix=/usr --mandir=/usr/share/man --includedir=/usr/include/rubinius
+  ./configure --skip-system --prefix=/usr/lib --bindir=/usr/bin --mandir=/usr/share/man --includedir=/usr/include/rubinius
   FAKEROOT="$pkgdir/" rake install
 }
