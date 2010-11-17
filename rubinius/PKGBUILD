@@ -2,14 +2,14 @@
 # Contributor: pumbur <free@pumbur.net>
 
 pkgname='rubinius'
-pkgver=1.1.0
+pkgver=1.1.1
 pkgrel=1
 pkgdesc="Rubinius, the Ruby VM"
 arch=('i686' 'x86_64')
 license=('BSD')
 url="http://rubini.us/"
-source=(http://asset.rubini.us/rubinius-1.1.0-20100923.tar.gz)
-md5sums=(e2ae16238b201de09975abe19da09ea9)
+source=(http://asset.rubini.us/rubinius-1.1.1-20101116.tar.gz)
+md5sums=(b39f618eeba37c3aff215da8bca55fd7)
 depends=(openssl readline)
 makedepends=(ruby bison zlib)
 
